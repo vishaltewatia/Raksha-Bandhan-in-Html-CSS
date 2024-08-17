@@ -1,0 +1,142 @@
+@import url(https://fonts.googleapis.com/css?family=Nobile:400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+body {
+    background: #e5e5e5;
+    background-image: url("https://i.postimg.cc/Hxy4Cm01/Raksha-Bandhan.jpg");
+    background-size: cover; /* Ensure the image covers the entire screen */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: center; /* Center the image */
+    padding: 50px;
+    margin: 0;
+}
+#card {
+    position: relative;
+    width: 100%;
+    max-width: 860px;
+    height: 480px;
+    margin: 0 auto;
+    perspective: 5000px;
+}
+#card-front,
+#card-inside {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 1s linear;
+}
+#card-front {
+    background-color: #ff5555;
+    background-image: linear-gradient(top, #ff5555 0%, #ff7777 100%);
+    z-index: 2;
+}
+#card-inside {
+    background: #ffefef;
+    transform: rotateY(180deg);
+}
+#card.open-fully #card-front {
+    transform: rotateY(-180deg);
+}
+#card.open-half #card-front {
+    transform: rotateY(-90deg);
+}
+#card.open-fully #card-inside {
+    transform: rotateY(0deg);
+}
+#card.open-half #card-inside {
+    transform: rotateY(90deg);
+}
+#card-front .wrap,
+#card-inside .wrap {
+    padding: 1.5em 2.5em;
+    height: 100%;
+    overflow: hidden;
+}
+#card-front h1 {
+    text-align: center;
+    font-family: "Nobile", sans-serif;
+    font-style: italic;
+    font-size: 40px;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15),
+        1px 1px 0 rgba(255, 200, 200, 255), 2px 2px 0 rgba(255, 150, 150, 255),
+        3px 3px 0 rgba(255, 125, 125, 255);
+    color: #fff;
+}
+#card-inside {
+    font-size: 1.1em;
+    line-height: 1.4;
+    font-family: "Nobile";
+    color: #331711;
+    font-style: italic;
+}
+p {
+    margin-top: 1em;
+}
+p:first-child {
+    margin-top: 0;
+}
+p.signed {
+    margin-top: 1.5em;
+    text-align: center;
+    font-family: "Dancing Script", sans-serif;
+    font-size: 1.5em;
+}
+.wrap p.bb{
+    color: rgb(255, 255, 255);
+    margin-top: 150px;
+    margin-left: 100px;
+    
+}
+#card-front button,
+#card-inside button {
+    position: absolute;
+    bottom: 1em;
+    background: #f44;
+    color: #fff;
+    font-family: "Nobile", sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 0.5em;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.4);
+}
+#card-front button:hover,
+#card-inside button:hover {
+    background: #f22;
+}
+#card-inside .wrap {
+    display: none;
+}
+#card.open-fully #card-inside .wrap {
+    display: block;
+}
+@media (max-width: 768px) {
+    #card {
+        width: 90%;
+        height: auto;
+        margin: 20px auto;
+    }
+    #card-front,
+    #card-inside {
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        position: static;
+        transform: none;
+    }
+    #card-front button {
+        bottom: 0.5em;
+        right: 0.5em;
+        font-size: 1.2em;
+    }
+    #card h1 {
+        font-size: 30px;
+    }
+}
